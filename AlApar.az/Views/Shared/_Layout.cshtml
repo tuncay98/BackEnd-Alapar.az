@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AlApar.Az</title>
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+          crossorigin="anonymous">
+
+
+
+    <link rel="icon" href="~/Assest/images/favicon.ico">
+    <link rel="stylesheet" href="~/Assest/css/bootstrap.css">
+
+
+    <link rel="stylesheet" href="~/Assest/owlcarousel/assets/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+
+    <link rel="stylesheet" href="~/Assest/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assest/css/grid-gallery.css">
+    <link rel="stylesheet" href="~/Assest/css/style.css">
+</head>
+<body>
+    <Nav id="Nav">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-3 col-xl-3 col-12">
+                    <div class="custom-col">
+                        <div class="Logo ">
+                            <center>
+                                <h3>
+                                    <a href="@Url.Action("Index","Home")">
+                                        <span>Al</span>Apar.Az
+                                    </a>
+                                </h3>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-lg-9 col-xl-9 d-sm-none d-none d-lg-block">
+                    <div class="custom-col">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <input type="text" name="Username" placeholder="Istifadəçi Adı">
+                            </li>
+                            <li class="list-inline-item">
+                                <input type="password" name="Password" placeholder="Şifrə">
+                            </li>
+                            <li class="list-inline-item">
+                                <button class="button" type="submit">Daxil Olun</button>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="badge" href="#">Qeydiyyat</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="badge" href="#">Əlaqə</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 MobileEnter">
+                    <div class="custom-col">
+                        <center>
+                            <span><a href="">Daxil Ol</a></span> <br>
+                            <span><a href="">Qeydiyyat</a></span>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Nav>
+
+
+    @RenderBody()
+
+
+    <footer class="page-footer font-small blue">
+
+
+        <center>
+            <div class="footer-copyright text-center py-3">
+                © 2018 AlApar.Az
+
+            </div>
+        </center>
+
+
+    </footer>
+    
+
+    <script type="text/javascript" src="~/Assest/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Assest/js/jquery.js"></script>
+    @RenderSection("HomeJs", required: false);
+    @RenderSection("Add", required: false);
+</body>
+</html>

@@ -1,0 +1,275 @@
+﻿@model AlApar.az.Model.DataBaseForAddingAds
+
+
+<div id="CreateAd">
+    <div class="AddAds-container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="custom-col">
+
+                    <form action="@Url.Action("Add", "ElaveEt")" method="post" enctype="multipart/form-data">
+                        <center style="background-color: whitesmoke; padding: 10px; border-radius: 10px;">
+                            @if (Session["Sekilin3denAzOlmasi"] != null)
+                                  {
+                        <div class="alert-danger">Şəkil Sayı 3-dən Çox Olmalıdır</div>
+
+                            Session["Sekilin3denAzOlmasi"] = null;
+                                }
+                            @if (Session["TamDoldurun"] != null)
+                                 {
+                        <div class="alert-danger">Boş Sahə Buraxmayın</div>
+
+                            Session["TamDoldurun"] = null;
+                                }
+
+                            @if (Session["SekilDuzFormatdaDeyil"] != null)
+                              {
+                        <div class="alert-danger">Yalnız şəkil daxil edin</div>
+
+                            }
+                            <h6>Əlaqədar Şəxsin Adı:</h6>
+
+                            <input type="text" name="Name" id="Name"> <br>
+
+                            <input type="radio" name="SellerType" value="false"> <span style="margin-right: 5px;">Mülkiyyətçi</span>
+                            <input type="radio" name="SellerType" value="true"><span>Vasitəçi</span>
+
+                            <h6>Telefon:</h6>
+
+                            <input type="text" name="Phone" id="Phone">
+
+                            <h6>Email:</h6>
+
+                            <input type="email" id="Email" name="Email">
+
+
+                            <div class="CityandType">
+                                <div class="row">
+                                    <div class="ol-md-12 col-xs-12 col-sm-12 col-lg-12 col-xl-6">
+                                        <h6>Şəhər:</h6>
+                                        <select name="City" id="City">
+                                            <option> </option>
+                                            @foreach (var item in Model.Seherler)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+
+}
+
+
+                                        </select>
+
+
+                                    </div>
+                                    <div class="ol-md-12 col-xs-12 col-sm-12 col-lg-12 col-xl-6">
+                                        <h6>Mülkün Növü:</h6>
+
+                                        <select name="Categoryİd" id="Categoryİd">
+                                            <option value=""></option>
+                                            @foreach (var item in Model.Kategoriyalar)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="MenzilOptions" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <h6>Otaq Sayı:</h6>
+
+                                        <select name="RoomMenzil" id="RoomRoomMenzil">
+                                            <option value="0" selected></option>
+                                            @foreach (var item in Model.OtaqSaylari)
+                    {
+
+                        <option value="@item.Id">@item.Name</option>
+}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <h6>Mənzilin Mərtəbəsi:</h6>
+                                        <input type="text" name="MenzilOtaqSayi" id="MenzilOtaqSayi">
+
+                                    </div>
+
+                                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 col-xl-12">
+                                        <center>
+                                            <h6>Binanın Mərtəbə Sayı:</h6>
+                                            <input type="text" name="MenzilBinaMertebeSayi" id="MenzilBinaMertebeSayi">
+                                        </center>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div id="HeyetEviOption" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <h6>Otaq Sayı:</h6>
+
+
+                                        <select name="HeyetOtaqSayi" id="HeyetOtaqSayi">
+                                            <option value="0" selected></option>
+                                            @foreach (var item in Model.OtaqSaylari)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <h6>Torpağın Sahesi (Sot):</h6>
+                                        <input type="text" name="TorpaqSahesi" id="TorpaqSahesi">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="OfisOptions" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <h6>Otaq Sayı:</h6>
+
+                                        <select name="OfisOtaqSayi" id="OfisOtaqSayi">
+                                            <option value="0" selected></option>
+                                            @foreach (var item in Model.OtaqSaylari)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xl-6" style="font-size: 15px">
+                                        @foreach (var item in Model.Bina_Novu)
+                {
+                        <input type="radio" name="MekanTipi" value="@item.Id"><span>@item.Name</span>
+}
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <h6>Sahə:</h6>
+                            <input type="text" name="Sahe" id="littleWidth"><span id="MorS"> m²</span>
+
+                            <h6>Kupça:</h6>
+                            <select name="Kupca">
+                                <option></option>
+                                <option value="false">Yoxdur</option>
+                                <option value="true">Vardır</option>
+
+                            </select>
+
+                            <h6>Elan Başlığı:</h6>
+                            <input type="text" name="Basliq" id="Basliq" maxlength="35">
+
+                            <h6>Məlumat:</h6>
+                            <textarea name="Melumat" id="Melumat" cols="30" rows="7" maxlength="300"></textarea>
+
+                            <h6>Qiymət:</h6>
+                            <input type="number" name="PriceOfAd" id="PriceOfAd" min="0" value="0"> <span style="position: absolute; margin-left: 5px">Azn</span>
+
+                            <h6>Ünvan:</h6>
+                            <input type="text" name="Unvan" id="Unvan">
+
+                            <div id="BakiRayonQesebe" style="display: none">
+
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                        <h6>Rayon:</h6>
+                                        <select name="Rayon" id="Rayon">
+                                            <option value="0" selected></option>
+                                            @foreach (var item in Model.Rayonlar)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+}
+                                        </select>
+
+
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+
+
+                                        <h6>Qəsəbə:</h6>
+                                        <select name="Qesebe" id="Qesebe">
+                                            <option value="0" selected></option>
+                                            @foreach (var item in Model.Qesebeler)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <h6>Xəritədə Ünvan:</h6>
+                            <div id="Xerite">
+                                <div id="map"></div>
+                            </div>
+                            <input type="hidden" name="Xloc" id="Xloc">
+                            <input type="hidden" name="Yloc" id="Yloc">
+                            <br>
+                            <h6>Şəkilləri Yüklə:</h6>
+                            <div>
+                                <center>
+                                    <label id="Uploading" for="PhotoUpload">Yüklə</label><br>
+                                                                                         <center><span style="font-size: 12px">*-Dəyişmək üçün yenidən seçin və əvvəl yüklənən şəkillər silinəcək</span><br /></center>
+                                    <span style="font-size: 12px">*-Minimum 3 şəkil yükləmən olar</span><br />
+                                    <center><span style="font-size: 12px">*- Əlifba Sıralaması ilə İlk Şəkil Profil şəkli olaraq qeydə alınacaq</span></center>
+                                    <input type="file" accept=".png, .jpg, .jpeg" style="visibility: hidden" name="PhotoUpload" id="PhotoUpload" multiple>
+
+                                </center>
+                            </div>
+                            <div id="PhotoComing">
+
+                            </div>
+                            <h6>Qaydalar:</h6>
+                            <div style="margin-top: 0" class="Qaydalar">
+                                <ul>
+                                    <li>
+                                        AlApar.Az -da bir ay ərzində eyni nömrədən 2 pulsuz elan yerləşdirmək olar. Bir elandan 1 dəfə istifadə etmək qadağandır.
+
+                                    </li>
+                                    <li>
+                                        Bir ay ərzində pulsuz elan limitini keçdikdə, hər növbəti elanın qiyməti - 5 AZN olacaq.
+
+                                    </li>
+                                    <li>
+                                        Elanlar vaxtından əvvəl silinsə də, nömrə üçün nəzərdə tutulmuş ödənişsiz yer, elan dərc ediləndən 30 gün sonra bərpa edilir.
+
+                                    </li>
+                                    <li>
+                                        AlApar.Az saytında istifadə etdiyiniz ödənişli xidmətlər üçün nəzərdə tutulan məbləğ geri qaytarılmır.
+                                    </li>
+                                    <li>
+                                        Elanınızla bağlı bütün məlumatlar sizin e-mail ünvanınıza göndərilir.
+                                    </li>
+                                    <li>
+                                        Üzərində AlApar.Az saytı da daxil olmaqla digər saytların loqotipləri olan şəkillər qəbul edilməyəcək.
+                                    </li>
+                                </ul>
+                            </div>
+                            <button type="submit" id="SubmitBtn">Yerləşdirmək</button>
+                        </center>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Add{
+
+
+    <script src="~/Assest/js/AddAd.js"></script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqG0pWND3nvKn66w8TxMdb3f90hamu7Bo&callback=initMap">
+    </script>
+}
+
+

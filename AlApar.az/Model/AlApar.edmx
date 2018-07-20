@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AlAparModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Ads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="money" />
+          <Property Name="OwnerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OwnerType" Type="bit" Nullable="false" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="VillageId" Type="int" />
+          <Property Name="Text" Type="text" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="XLocation" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="YLocation" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AgentId" Type="int" />
+          <Property Name="ProfileId" Type="int" />
+          <Property Name="VIP" Type="bit" Nullable="false" />
+          <Property Name="Kupca" Type="bit" Nullable="false" />
+          <Property Name="RoomId" Type="int" />
+          <Property Name="BuildingTypeId" Type="int" />
+          <Property Name="Mertebe" Type="nvarchar" MaxLength="50" />
+          <Property Name="BinaMertebesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sahe" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TorpaqSahesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Agents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="300" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProImage" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="BuildingTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ElanProfileFavours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElanId" Type="int" />
+          <Property Name="ProfileId" Type="int" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="ElanId" Type="int" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RoomCounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Villages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="AgentAds">
+          <End Role="Agents" Type="Self.Agents" Multiplicity="0..1" />
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agents">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BuildingTypeAds">
+          <End Role="BuildingTypes" Type="Self.BuildingTypes" Multiplicity="0..1" />
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuildingTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="BuildingTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CategoryAds">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CityAds">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Elan_Images">
+          <End Role="Ads" Type="Self.Ads" Multiplicity="0..1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="ElanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ElanProfileFavours_Ads">
+          <End Role="Ads" Type="Self.Ads" Multiplicity="0..1" />
+          <End Role="ElanProfileFavours" Type="Self.ElanProfileFavours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElanProfileFavours">
+              <PropertyRef Name="ElanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ElanProfileFavours_Profile">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="0..1" />
+          <End Role="ElanProfileFavours" Type="Self.ElanProfileFavours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElanProfileFavours">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfileAds">
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="0..1" />
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RegionAds">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="0..1" />
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoomAds">
+          <End Role="RoomCounts" Type="Self.RoomCounts" Multiplicity="0..1" />
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomCounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VillageAds">
+          <End Role="Villages" Type="Self.Villages" Multiplicity="0..1" />
+          <End Role="Ads" Type="Self.Ads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Villages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ads">
+              <PropertyRef Name="VillageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AlAparModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ads" EntityType="Self.Ads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Agents" EntityType="Self.Agents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuildingTypes" EntityType="Self.BuildingTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ElanProfileFavours" EntityType="Self.ElanProfileFavours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomCounts" EntityType="Self.RoomCounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Villages" EntityType="Self.Villages" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="AgentAds" Association="Self.AgentAds">
+            <End Role="Agents" EntitySet="Agents" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingTypeAds" Association="Self.BuildingTypeAds">
+            <End Role="BuildingTypes" EntitySet="BuildingTypes" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryAds" Association="Self.CategoryAds">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="CityAds" Association="Self.CityAds">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="Elan_Images" Association="Self.Elan_Images">
+            <End Role="Ads" EntitySet="Ads" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="ElanProfileFavours_Ads" Association="Self.ElanProfileFavours_Ads">
+            <End Role="Ads" EntitySet="Ads" />
+            <End Role="ElanProfileFavours" EntitySet="ElanProfileFavours" />
+          </AssociationSet>
+          <AssociationSet Name="ElanProfileFavours_Profile" Association="Self.ElanProfileFavours_Profile">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="ElanProfileFavours" EntitySet="ElanProfileFavours" />
+          </AssociationSet>
+          <AssociationSet Name="ProfileAds" Association="Self.ProfileAds">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="RegionAds" Association="Self.RegionAds">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="RoomAds" Association="Self.RoomAds">
+            <End Role="RoomCounts" EntitySet="RoomCounts" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="VillageAds" Association="Self.VillageAds">
+            <End Role="Villages" EntitySet="Villages" />
+            <End Role="Ads" EntitySet="Ads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlAparModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AlAparEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="AlAparModel.Admin" />
+          <EntitySet Name="Ads" EntityType="AlAparModel.Ad" />
+          <EntitySet Name="Agents" EntityType="AlAparModel.Agent" />
+          <EntitySet Name="BuildingTypes" EntityType="AlAparModel.BuildingType" />
+          <EntitySet Name="Categories" EntityType="AlAparModel.Category" />
+          <EntitySet Name="Cities" EntityType="AlAparModel.City" />
+          <EntitySet Name="ElanProfileFavours" EntityType="AlAparModel.ElanProfileFavour" />
+          <EntitySet Name="Images" EntityType="AlAparModel.Image" />
+          <EntitySet Name="Profiles" EntityType="AlAparModel.Profile" />
+          <EntitySet Name="Regions" EntityType="AlAparModel.Region" />
+          <EntitySet Name="RoomCounts" EntityType="AlAparModel.RoomCount" />
+          <EntitySet Name="Villages" EntityType="AlAparModel.Village" />
+          <AssociationSet Name="AgentAds" Association="AlAparModel.AgentAds">
+            <End Role="Agent" EntitySet="Agents" />
+            <End Role="Ad" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingTypeAds" Association="AlAparModel.BuildingTypeAds">
+            <End Role="BuildingType" EntitySet="BuildingTypes" />
+            <End Role="Ad" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryAds" Association="AlAparModel.CategoryAds">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Ad" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="CityAds" Association="AlAparModel.CityAds">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Ad" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="Elan_Images" Association="AlAparModel.Elan_Images">
+            <End Role="Ad" EntitySet="Ads" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="ElanProfileFavours_Ads" Association="AlAparModel.ElanProfileFavours_Ads">
+            <End Role="Ad" EntitySet="Ads" />
+            <End Role="ElanProfileFavour" EntitySet="ElanProfileFavours" />
+          </AssociationSet>
+          <AssociationSet Name="ProfileAds" Association="AlAparModel.ProfileAds">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="Ad" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="RegionAds" Association="AlAparModel.RegionAds">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Ad" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="RoomAds" Association="AlAparModel.RoomAds">
+            <End Role="RoomCount" EntitySet="RoomCounts" />
+            <End Role="Ad" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="VillageAds" Association="AlAparModel.VillageAds">
+            <End Role="Village" EntitySet="Villages" />
+            <End Role="Ad" EntitySet="Ads" />
+          </AssociationSet>
+          <AssociationSet Name="ElanProfileFavours_Profile" Association="AlAparModel.ElanProfileFavours_Profile">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="ElanProfileFavour" EntitySet="ElanProfileFavours" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="OwnerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerType" Type="Boolean" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="PinCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="VillageId" Type="Int32" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="YLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgentId" Type="Int32" />
+          <Property Name="ProfileId" Type="Int32" />
+          <Property Name="VIP" Type="Boolean" Nullable="false" />
+          <Property Name="Kupca" Type="Boolean" Nullable="false" />
+          <Property Name="RoomId" Type="Int32" />
+          <Property Name="BuildingTypeId" Type="Int32" />
+          <Property Name="Mertebe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BinaMertebesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sahe" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TorpaqSahesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Agent" Relationship="AlAparModel.AgentAds" FromRole="Ad" ToRole="Agent" />
+          <NavigationProperty Name="BuildingType" Relationship="AlAparModel.BuildingTypeAds" FromRole="Ad" ToRole="BuildingType" />
+          <NavigationProperty Name="Category" Relationship="AlAparModel.CategoryAds" FromRole="Ad" ToRole="Category" />
+          <NavigationProperty Name="City" Relationship="AlAparModel.CityAds" FromRole="Ad" ToRole="City" />
+          <NavigationProperty Name="Images" Relationship="AlAparModel.Elan_Images" FromRole="Ad" ToRole="Image" />
+          <NavigationProperty Name="ElanProfileFavours" Relationship="AlAparModel.ElanProfileFavours_Ads" FromRole="Ad" ToRole="ElanProfileFavour" />
+          <NavigationProperty Name="Profile" Relationship="AlAparModel.ProfileAds" FromRole="Ad" ToRole="Profile" />
+          <NavigationProperty Name="Region" Relationship="AlAparModel.RegionAds" FromRole="Ad" ToRole="Region" />
+          <NavigationProperty Name="RoomCount" Relationship="AlAparModel.RoomAds" FromRole="Ad" ToRole="RoomCount" />
+          <NavigationProperty Name="Village" Relationship="AlAparModel.VillageAds" FromRole="Ad" ToRole="Village" />
+        </EntityType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProImage" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ads" Relationship="AlAparModel.AgentAds" FromRole="Agent" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="BuildingType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ads" Relationship="AlAparModel.BuildingTypeAds" FromRole="BuildingType" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ads" Relationship="AlAparModel.CategoryAds" FromRole="Category" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ads" Relationship="AlAparModel.CityAds" FromRole="City" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="ElanProfileFavour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElanId" Type="Int32" />
+          <Property Name="ProfileId" Type="Int32" />
+          <NavigationProperty Name="Ad" Relationship="AlAparModel.ElanProfileFavours_Ads" FromRole="ElanProfileFavour" ToRole="Ad" />
+          <NavigationProperty Name="Profile" Relationship="AlAparModel.ElanProfileFavours_Profile" FromRole="ElanProfileFavour" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ElanId" Type="Int32" />
+          <NavigationProperty Name="Ad" Relationship="AlAparModel.Elan_Images" FromRole="Image" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ads" Relationship="AlAparModel.ProfileAds" FromRole="Profile" ToRole="Ad" />
+          <NavigationProperty Name="ElanProfileFavours" Relationship="AlAparModel.ElanProfileFavours_Profile" FromRole="Profile" ToRole="ElanProfileFavour" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ads" Relationship="AlAparModel.RegionAds" FromRole="Region" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="RoomCount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ads" Relationship="AlAparModel.RoomAds" FromRole="RoomCount" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ads" Relationship="AlAparModel.VillageAds" FromRole="Village" ToRole="Ad" />
+        </EntityType>
+        <Association Name="AgentAds">
+          <End Type="AlAparModel.Agent" Role="Agent" Multiplicity="0..1" />
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BuildingTypeAds">
+          <End Type="AlAparModel.BuildingType" Role="BuildingType" Multiplicity="0..1" />
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BuildingType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="BuildingTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CategoryAds">
+          <End Type="AlAparModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CityAds">
+          <End Type="AlAparModel.City" Role="City" Multiplicity="1" />
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Elan_Images">
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="0..1" />
+          <End Type="AlAparModel.Image" Role="Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ElanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ElanProfileFavours_Ads">
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="0..1" />
+          <End Type="AlAparModel.ElanProfileFavour" Role="ElanProfileFavour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElanProfileFavour">
+              <PropertyRef Name="ElanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfileAds">
+          <End Type="AlAparModel.Profile" Role="Profile" Multiplicity="0..1" />
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RegionAds">
+          <End Type="AlAparModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoomAds">
+          <End Type="AlAparModel.RoomCount" Role="RoomCount" Multiplicity="0..1" />
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomCount">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VillageAds">
+          <End Type="AlAparModel.Village" Role="Village" Multiplicity="0..1" />
+          <End Type="AlAparModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Village">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="VillageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ElanProfileFavours_Profile">
+          <End Type="AlAparModel.Profile" Role="Profile" Multiplicity="0..1" />
+          <End Type="AlAparModel.ElanProfileFavour" Role="ElanProfileFavour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ElanProfileFavour">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlAparModelStoreContainer" CdmEntityContainer="AlAparEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="AlAparModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ads">
+            <EntityTypeMapping TypeName="AlAparModel.Ad">
+              <MappingFragment StoreEntitySet="Ads">
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TorpaqSahesi" ColumnName="TorpaqSahesi" />
+                <ScalarProperty Name="Sahe" ColumnName="Sahe" />
+                <ScalarProperty Name="BinaMertebesi" ColumnName="BinaMertebesi" />
+                <ScalarProperty Name="Mertebe" ColumnName="Mertebe" />
+                <ScalarProperty Name="BuildingTypeId" ColumnName="BuildingTypeId" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="Kupca" ColumnName="Kupca" />
+                <ScalarProperty Name="VIP" ColumnName="VIP" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="YLocation" ColumnName="YLocation" />
+                <ScalarProperty Name="XLocation" ColumnName="XLocation" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="VillageId" ColumnName="VillageId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="OwnerType" ColumnName="OwnerType" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agents">
+            <EntityTypeMapping TypeName="AlAparModel.Agent">
+              <MappingFragment StoreEntitySet="Agents">
+                <ScalarProperty Name="ProImage" ColumnName="ProImage" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuildingTypes">
+            <EntityTypeMapping TypeName="AlAparModel.BuildingType">
+              <MappingFragment StoreEntitySet="BuildingTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="AlAparModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="AlAparModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ElanProfileFavours">
+            <EntityTypeMapping TypeName="AlAparModel.ElanProfileFavour">
+              <MappingFragment StoreEntitySet="ElanProfileFavours">
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="ElanId" ColumnName="ElanId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="AlAparModel.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="ElanId" ColumnName="ElanId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="AlAparModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="AlAparModel.Region">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomCounts">
+            <EntityTypeMapping TypeName="AlAparModel.RoomCount">
+              <MappingFragment StoreEntitySet="RoomCounts">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Villages">
+            <EntityTypeMapping TypeName="AlAparModel.Village">
+              <MappingFragment StoreEntitySet="Villages">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
