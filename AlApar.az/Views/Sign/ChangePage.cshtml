@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "ChangePage";
+}
+
+<section id="ChangePass">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
+                <center>
+                    <form action="@Url.Action("CompChange", "Sign", new { id= ViewBag.Sexs  })" method="post">
+
+                        <h5>Şifrə:</h5>
+                        <input type="password" name="Pass" id="">
+                        <br>
+                        <button type="submit" value="" class="btn btn-primary"> Şifrəni Yenilə</button>
+
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+</section>
+

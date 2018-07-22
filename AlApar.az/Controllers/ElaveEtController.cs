@@ -87,6 +87,14 @@ namespace AlApar.az.Controllers
             YeniElan.Kupca = (Kupca == "false" ? false : true);
             YeniElan.VIP = false;
             YeniElan.Title = Basliq;
+                if (Session["DaxilOlanID"] != null)
+                {
+                    YeniElan.ProfileId = Convert.ToInt32(Session["DaxilOlanID"]);
+                }
+                if (Session["AgentId"] != null)
+                {
+                    YeniElan.AgentId = Convert.ToInt32(Session["AgentId"]);
+                }
             db.Ads.Add(YeniElan);
             db.SaveChanges();
 

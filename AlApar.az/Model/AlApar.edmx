@@ -31,8 +31,8 @@
           <Property Name="VillageId" Type="int" />
           <Property Name="Text" Type="text" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="XLocation" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="YLocation" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="XLocation" Type="nvarchar" MaxLength="100" />
+          <Property Name="YLocation" Type="nvarchar" MaxLength="100" />
           <Property Name="AgentId" Type="int" />
           <Property Name="ProfileId" Type="int" />
           <Property Name="VIP" Type="bit" Nullable="false" />
@@ -76,6 +76,15 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="complains">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ElanId" Type="int" />
         </EntityType>
         <EntityType Name="ElanProfileFavours">
           <Key>
@@ -262,6 +271,7 @@
           <EntitySet Name="BuildingTypes" EntityType="Self.BuildingTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="complains" EntityType="Self.complains" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ElanProfileFavours" EntityType="Self.ElanProfileFavours" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
@@ -324,6 +334,7 @@
           <EntitySet Name="BuildingTypes" EntityType="AlAparModel.BuildingType" />
           <EntitySet Name="Categories" EntityType="AlAparModel.Category" />
           <EntitySet Name="Cities" EntityType="AlAparModel.City" />
+          <EntitySet Name="complains" EntityType="AlAparModel.complain" />
           <EntitySet Name="ElanProfileFavours" EntityType="AlAparModel.ElanProfileFavour" />
           <EntitySet Name="Images" EntityType="AlAparModel.Image" />
           <EntitySet Name="Profiles" EntityType="AlAparModel.Profile" />
@@ -401,8 +412,8 @@
           <Property Name="VillageId" Type="Int32" />
           <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="XLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="YLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="XLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="YLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="AgentId" Type="Int32" />
           <Property Name="ProfileId" Type="Int32" />
           <Property Name="VIP" Type="Boolean" Nullable="false" />
@@ -460,6 +471,15 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ads" Relationship="AlAparModel.CityAds" FromRole="City" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="complain">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ElanId" Type="Int32" />
         </EntityType>
         <EntityType Name="ElanProfileFavour">
           <Key>
@@ -727,6 +747,16 @@
             <EntityTypeMapping TypeName="AlAparModel.City">
               <MappingFragment StoreEntitySet="Cities">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="complains">
+            <EntityTypeMapping TypeName="AlAparModel.complain">
+              <MappingFragment StoreEntitySet="complains">
+                <ScalarProperty Name="ElanId" ColumnName="ElanId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

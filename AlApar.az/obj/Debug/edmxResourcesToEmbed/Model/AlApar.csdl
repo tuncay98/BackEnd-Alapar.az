@@ -7,6 +7,7 @@
     <EntitySet Name="BuildingTypes" EntityType="AlAparModel.BuildingType" />
     <EntitySet Name="Categories" EntityType="AlAparModel.Category" />
     <EntitySet Name="Cities" EntityType="AlAparModel.City" />
+    <EntitySet Name="complains" EntityType="AlAparModel.complain" />
     <EntitySet Name="ElanProfileFavours" EntityType="AlAparModel.ElanProfileFavour" />
     <EntitySet Name="Images" EntityType="AlAparModel.Image" />
     <EntitySet Name="Profiles" EntityType="AlAparModel.Profile" />
@@ -84,8 +85,8 @@
     <Property Name="VillageId" Type="Int32" />
     <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="XLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="YLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="XLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="YLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="AgentId" Type="Int32" />
     <Property Name="ProfileId" Type="Int32" />
     <Property Name="VIP" Type="Boolean" Nullable="false" />
@@ -143,6 +144,15 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Ads" Relationship="AlAparModel.CityAds" FromRole="City" ToRole="Ad" />
+  </EntityType>
+  <EntityType Name="complain">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="ElanId" Type="Int32" />
   </EntityType>
   <EntityType Name="ElanProfileFavour">
     <Key>

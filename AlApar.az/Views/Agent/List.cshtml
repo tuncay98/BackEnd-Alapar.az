@@ -1,0 +1,59 @@
+﻿@model List<AlApar.az.Model.Agent>
+@{
+    /**/
+
+    ViewBag.Title = "List";
+}
+
+
+<div id="Profile">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="custom-col">
+                    <center>
+                        <h4>Elanlarım:</h4>
+                    </center>
+                </div>
+            </div>
+
+
+                             @foreach (var item in Model)
+            {
+
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                    <div class="custom-col">
+                        <div class="ImagePlace">
+
+                            <a href="@Url.Action("Index","Agent", new { id= item.Id })">
+                                <img src="~/Assest/images/AgentsImages/@item.ProImage" alt="">
+                            </a>
+                        </div>
+                        <div class="Title">
+                            <a href="@Url.Action("Index","Agent", new { id= item.Id })">
+                                <h6>@item.Name</h6>
+                            </a>
+                        </div>
+                        <div class="Place">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 col-12">
+                                    <div class="Area">
+                                        @item.Ads.Where(w => w.AgentId == item.Id).Count()+Təklif                    
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+       
+            }
+                     </div>
+        </div>
+    </div>
+
+<script>
+    document.querySelectorAll("img").forEach(function (element) {
+        element.style.height = element.offsetWidth + "px"
+    });
+</script>
+

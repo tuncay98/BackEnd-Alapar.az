@@ -7,16 +7,17 @@
       <Diagram DiagramId="96770a628dcf473787382cb653255858" Name="Diagram1" ZoomLevel="66">
         <EntityTypeShape EntityType="AlAparModel.Admin" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="AlAparModel.Ad" Width="1.5" PointX="3" PointY="1.25" />
-        <EntityTypeShape EntityType="AlAparModel.Agent" Width="1.5" PointX="0.75" PointY="17.125" />
-        <EntityTypeShape EntityType="AlAparModel.BuildingType" Width="1.5" PointX="0.75" PointY="22.375" />
-        <EntityTypeShape EntityType="AlAparModel.Category" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="AlAparModel.Agent" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="AlAparModel.BuildingType" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="AlAparModel.Category" Width="1.5" PointX="0.75" PointY="10.125" />
         <EntityTypeShape EntityType="AlAparModel.City" Width="1.5" PointX="0.75" PointY="20" />
+        <EntityTypeShape EntityType="AlAparModel.complain" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="AlAparModel.ElanProfileFavour" Width="1.5" PointX="5.25" PointY="4.375" />
         <EntityTypeShape EntityType="AlAparModel.Image" Width="1.5" PointX="5.25" PointY="7.25" />
         <EntityTypeShape EntityType="AlAparModel.Profile" Width="1.5" PointX="0.75" PointY="4.375" />
-        <EntityTypeShape EntityType="AlAparModel.Region" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="AlAparModel.Region" Width="1.5" PointX="0.75" PointY="22.375" />
         <EntityTypeShape EntityType="AlAparModel.RoomCount" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="AlAparModel.Village" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="AlAparModel.Village" Width="1.5" PointX="0.75" PointY="17.75" />
         <AssociationConnector Association="AlAparModel.AgentAds" />
         <AssociationConnector Association="AlAparModel.BuildingTypeAds" />
         <AssociationConnector Association="AlAparModel.CategoryAds" />

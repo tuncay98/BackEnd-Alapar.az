@@ -150,9 +150,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdPageController.cs" />
+    <Compile Include="Controllers\AgentController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ElaveEtController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\SignController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,6 +192,9 @@
       <DependentUpon>AlApar.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\City.cs">
+      <DependentUpon>AlApar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\complain.cs">
       <DependentUpon>AlApar.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DataBaseForAddingAds.cs" />
@@ -227,6 +235,7 @@
     <Content Include="Assest\images\favicon.ico" />
     <Content Include="Assest\images\MainPhoto.jpg" />
     <Content Include="Assest\images\pointer.png" />
+    <Content Include="Assest\js\Ajax.js" />
     <Content Include="Assest\js\Angular.js" />
     <Content Include="Assest\js\AddAd.js" />
     <Content Include="Assest\js\AdsPage.js" />
@@ -310,6 +319,17 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Menu\MenuSearch.cshtml" />
     <Content Include="Views\Menu\Category.cshtml" />
+    <Content Include="Views\Sign\Index.cshtml" />
+    <Content Include="Views\Sign\SignUp.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Sign\Forgot.cshtml" />
+    <Content Include="Views\Sign\SendEmail.cshtml" />
+    <Content Include="Views\Sign\ChangePage.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Agent\Index.cshtml" />
+    <Content Include="Views\Agent\List.cshtml" />
+    <Content Include="Views\AdPage\Index.cshtml" />
+    <Content Include="Views\AdPage\Sikayet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

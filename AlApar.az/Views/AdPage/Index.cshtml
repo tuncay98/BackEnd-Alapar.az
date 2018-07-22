@@ -1,0 +1,225 @@
+﻿@model AlApar.az.Model.DataBaseForHome
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="gallery-block grid-gallery">
+    <div class="container">
+        <div class="heading">
+            <h2>@Model.TamSiyahi.First().Title</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Sekiller)
+            {
+        <div class="col-md-6 col-lg-4 item">
+            <a class="lightbox" href="~/Assest/images/UploadAdsImages/@item.Name">
+                <img class="img-fluid image scale-on-hover" src="~/Assest/images/UploadAdsImages/@item.Name">
+            </a>
+        </div>
+            }
+
+
+
+
+
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.grid-gallery', {
+        animation: 'slideIn'
+    });
+</script>
+
+<div id="AdsPage">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.TamSiyahi)
+    {
+        <div class="col-md-3 col-lg-3 col-xl-3 col-sm-3 col-xs-3">
+            <div class="custom-col">
+                <div class="Price">
+                    <center>
+                        <h5>@item.Price.Value.ToString("#,#") Azn</h5>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 col-xl-3">
+            <div class="custom-col">
+                <div class="Info">
+                    <center>
+                        <h5>Məlumat:</h5>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 col-xl-3">
+            <div class="custom-col">
+                <div class="DoVip">
+                    <center>
+                        <a href="">Elanı Aylıq V.I.P Et - 5 AZN</a>
+
+                    </center>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 col-xl-3">
+
+            <div class="custom-col">
+                <div class="PutForward">
+                    <center>
+                        <a href="">Elanı Irəli Çək - 1 AZN</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 col-xl-3">
+            <div class="custom-col">
+                <div class="Phone">
+                    <center>
+                        <span>Tel:</span> <h5 class="PhoneNum">@item.Phone</h5><p><h5 class="SalerName">@item.OwnerName</h5></p><p class="classOfSaler">@(item.OwnerType==true?"Vasitəçi":"Mülkiyyətçi")</p>
+                    </center>
+                </div>
+                <br>
+                <div class="Complain">
+                    <center>
+                        <p style="margin-bottom: 0px">ID: @item.Id</p>
+                        <a href="@Url.Action("Sikayet","AdPage", new { id= item.Id })">Şikayət Et</a>
+                    </center>
+                </div>
+                <div class="ChangeAd">
+                    <center>
+                        <h6>Pin Kod:</h6>
+                        <input type="text"> <br>
+                        <a href="">Elanı Dəyiş</a> <br>
+                        <a href="">Elanı Sil</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-4 col-lg-4 col-xl-4 col-sm-4">
+            <div class="custom-col">
+                <div class="Categories">
+                    <b>Kategroiya:</b> <span>@item.Category.Name</span> <br>
+                    @if(item.CityId > 0){
+                        <b>Şəhər:</b> <span>@item.City.Name</span> <br>
+                    }
+                    @if (item.RoomId > 0)
+                    {
+                        <b>Otaq Sayı:</b> <span>@item.RoomCount.Name Otaqlı</span> <br>
+                    }
+                    @if(item.Mertebe != null && item.BinaMertebesi != null)
+                    {
+                        <b>Mərtəbə:</b> <span>@item.Mertebe/@item.BinaMertebesi</span> <br>
+                    }
+                    @if(item.Sahe != null)
+                    {
+                        <b>Sahə:</b> <span>@item.Sahe m²</span> <br>
+                    }
+                    @if(item.TorpaqSahesi != null)
+                    {
+                        <b>Torpaq Sahəsi:</b> <span>@item.TorpaqSahesi Sot</span> <br>
+                    }
+                    @if(item.BuildingTypeId > 0)
+                    {
+                        <b>Yerləşdiyi Bina:</b> <span>@item.BuildingType.Name</span> <br>
+                    }
+                    
+                    <b>Kupça:</b> <span>@(item.Kupca==true?"Var":"Yoxdur")</span> <br>
+                    <b>Ünvan:</b> <span>@item.Adress</span> <br>
+                    <br>
+                    <p>@item.Text</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 col-xs-5 col-lg-5 col-xl-5 col-sm-5">
+            <div class="custom-col">
+                <input type="number" hidden id="Xloc" value="@item.XLocation"/>
+                <input type="number" hidden id="Yloc" value="@item.YLocation"/>
+
+                <div id="map"></div>
+
+
+            </div>
+        </div>
+}
+        </div>
+    </div>
+</div>
+
+<div id="OtherAds">
+    <div class="container">
+        <center><h4>Digər Elanlar:</h4></center>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-sm-12 col-lg-3 col-xl-3">
+                <div class="custom-col">
+                    <div class="ImagePlace">
+                        <div class="PriceLogo">
+                            <div class="Holder">
+                                <div class="PriceBar">90,000 Azn</div>
+
+                            </div>
+                        </div>
+                        <a href="">
+                            <img src="images/Ev2.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="Title">
+                        <a href="">
+                            <h6>Ev Satılır</h6>
+                        </a>
+                    </div>
+                    <div class="Place">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                                <div class="Area">
+                                    <span>
+                                        <i class="fas fa-vector-square"></i> 52 m²
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                                <div class="Room">
+                                    <span>
+                                        <i class="fas fa-bed"></i> 2 Otaqlı
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                                <div class="Kind">
+                                    <span>
+                                        <i class="fas fa-tag"></i> Mənzil
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+
+                                <div class="Placebar">
+                                    <i class="fas fa-map-marker-alt"></i> 6-ci MKR
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqG0pWND3nvKn66w8TxMdb3f90hamu7Bo&callback=initMap">
+</script>
+
+@section OnePage{
+    <script src="~/Assest/js/map.js"></script>
+    
+
+}

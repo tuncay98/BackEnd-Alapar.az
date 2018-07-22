@@ -24,6 +24,11 @@ namespace AlApar.az.Controllers
             data.Elanler = db.Ads.Where(w => w.RegionId == id && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
             data.Sekiller = db.Images.ToList();
             data.VipElanlar = db.Ads.Where(w => w.VIP == true && w.RegionId == id && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
+            if (data.VipElanlar.Count < 1)
+            {
+                data.VipElanlar = db.Ads.Where(w => w.VIP == true && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
+
+            }
             return View(data);
         }
 
@@ -37,6 +42,10 @@ namespace AlApar.az.Controllers
                 data.Elanler = db.Ads.Where(w => w.CategoryId == id && w.StartDate < DateTime.Now).ToList();
                 data.Sekiller = db.Images.ToList();
                 data.VipElanlar = db.Ads.Where(w => w.VIP == true && w.CategoryId == id && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
+                if (data.VipElanlar.Count < 1)
+                {
+                    data.VipElanlar = db.Ads.Where(w => w.VIP == true && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
+                }
             }
             else {
 
@@ -45,12 +54,20 @@ namespace AlApar.az.Controllers
                     data.Elanler = db.Ads.Where(w => w.CategoryId == id & w.RoomId == room && w.StartDate < DateTime.Now).ToList();
                     data.Sekiller = db.Images.ToList();
                     data.VipElanlar = db.Ads.Where(w => w.VIP == true && w.CategoryId == id && w.RoomId == room && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
+                    if (data.VipElanlar.Count < 1)
+                    {
+                        data.VipElanlar = db.Ads.Where(w => w.VIP == true && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
+                    }
                 }
                 else if(room==5)
                 {
                     data.Elanler = db.Ads.Where(w => w.CategoryId == id & w.RoomId >= room && w.StartDate < DateTime.Now).ToList();
                     data.Sekiller = db.Images.ToList();
                     data.VipElanlar = db.Ads.Where(w => w.VIP == true && w.CategoryId == id && w.RoomId >= room && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
+                    if (data.VipElanlar.Count < 1)
+                    {
+                        data.VipElanlar = db.Ads.Where(w => w.VIP == true && w.StartDate < DateTime.Now).OrderByDescending(w => w.StartDate).ToList();
+                    }
                 }
             }
             return View(data);

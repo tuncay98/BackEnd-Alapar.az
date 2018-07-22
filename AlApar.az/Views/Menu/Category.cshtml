@@ -158,7 +158,7 @@
                 {
                     <div class="item">
                         <div class="Images">
-                            <a href="">
+                            <a href="@Url.Action("Index","Agent", new { id = item.Id })">
                                 <img src="~/Assest/images/AgentsImages/@item.ProImage" alt="">
                             </a>
                         </div>
@@ -178,7 +178,7 @@
             </div>
             <center class="FooterTitle">
                 <h6>
-                    <a href="@Url.Action("Index","Agents")">Hamisina Baxin</a> |
+                    <a href="@Url.Action("List","Agent")">Hamisina Baxin</a> |
                     <a href="@Url.Action("Add","Agents")">
                         <span>+Agentlik Əlavə Et</span>
                     </a>
@@ -233,18 +233,18 @@
                         <div class="ImagePlace">
                             <div class="PriceLogo">
                                 <div class="Holder">
-                                    <div class="PriceBar">@item.Price.Value.ToString("##") Azn</div>
+                                    <div class="PriceBar">@item.Price.Value.ToString("#,#") Azn</div>
 
                                 </div>
                             </div>
-                            <a href="@Url.Action("AdPage","Home", new { id = item.Id})">
+                            <a href="@Url.Action("Index","AdPage", new { id = item.Id})">
 
                                 <img src="~/Assest/images/UploadAdsImages/@Model.Sekiller.Where(w=> w.ElanId == item.Id).OrderBy(o=> o.Name).FirstOrDefault().Name" alt="">
 
                             </a>
                         </div>
                         <div class="Title">
-                            <a href="@Url.Action("AdPage","Home", new { id = item.Id})">
+                            <a href="@Url.Action("Index","AdPage", new { id = item.Id})">
                                 <h6>@item.Title</h6>
                             </a>
                         </div>

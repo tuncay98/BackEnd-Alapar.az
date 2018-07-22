@@ -31,6 +31,7 @@ namespace AlApar.az.Model
         public virtual DbSet<BuildingType> BuildingTypes { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<complain> complains { get; set; }
         public virtual DbSet<ElanProfileFavour> ElanProfileFavours { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Profile> Profiles { get; set; }

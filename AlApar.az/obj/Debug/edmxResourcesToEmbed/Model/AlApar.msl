@@ -79,6 +79,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="complains">
+      <EntityTypeMapping TypeName="AlAparModel.complain">
+        <MappingFragment StoreEntitySet="complains">
+          <ScalarProperty Name="ElanId" ColumnName="ElanId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ElanProfileFavours">
       <EntityTypeMapping TypeName="AlAparModel.ElanProfileFavour">
         <MappingFragment StoreEntitySet="ElanProfileFavours">

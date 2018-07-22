@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<section id="SignUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
+                <center>
+
+                    <form action="@Url.Action("SignUp","Sign")" method="post">
+                    @if (Session["UsernameTutulub"] != null)
+                    {
+                        <label class="danger label-danger alert-danger">İstifadəçi Adı Mövcuddur</label>
+                        Session["UsernameTutulub"] = null;
+                    }
+                    @if (Session["EmailTutulub"] != null)
+                    {
+                        <label class="danger label-danger alert-danger">Email Mövcuddur</label>
+                        Session["EmailTutulub"] = null;
+                    }
+                        <h5>İstifadəçi Adı:</h5>
+                        <input type="text" name="Username">
+                        <h5>Email:</h5>
+                        <input type="email" name="Email" id="">
+                        <h5>Şifrə:</h5>
+                        <input type="password" name="Password" id="Pass" minlength="5">
+                        <br>
+                        <button type="submit" value="" class="btn btn-primary"> Qeydiyyatdan Keçin </button>
+
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section SignUp{
+    <script src="~/Assest/owlcarousel/owl.carousel.min.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <!-- <script src="js/scriptSignIn.js"></script> -->
+    <script src="~/Assest/js/scriptSignUp.js"></script>
+    </body>
+}

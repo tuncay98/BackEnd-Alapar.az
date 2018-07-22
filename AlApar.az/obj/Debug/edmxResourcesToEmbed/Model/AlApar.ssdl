@@ -26,8 +26,8 @@
     <Property Name="VillageId" Type="int" />
     <Property Name="Text" Type="text" Nullable="false" />
     <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="XLocation" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="YLocation" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="XLocation" Type="nvarchar" MaxLength="100" />
+    <Property Name="YLocation" Type="nvarchar" MaxLength="100" />
     <Property Name="AgentId" Type="int" />
     <Property Name="ProfileId" Type="int" />
     <Property Name="VIP" Type="bit" Nullable="false" />
@@ -71,6 +71,15 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="complains">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="ElanId" Type="int" />
   </EntityType>
   <EntityType Name="ElanProfileFavours">
     <Key>
@@ -257,6 +266,7 @@
     <EntitySet Name="BuildingTypes" EntityType="Self.BuildingTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="complains" EntityType="Self.complains" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ElanProfileFavours" EntityType="Self.ElanProfileFavours" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
