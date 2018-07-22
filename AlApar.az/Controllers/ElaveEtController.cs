@@ -116,7 +116,7 @@ namespace AlApar.az.Controllers
                     }
                 
 
-                return Content("Elave Olundu!" + PhotoUpload.Length.ToString() + Name + Xloc + Yloc);
+                return RedirectToAction("Index", "AdPage", new { id = YeniElan.Id });
             }
             else
             {
