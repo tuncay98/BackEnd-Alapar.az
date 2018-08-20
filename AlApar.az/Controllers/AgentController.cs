@@ -9,13 +9,13 @@ namespace AlApar.az.Controllers
 {
     public class AgentController : Controller
     {
-        AlAparEntities db = new AlAparEntities();
+        alaparSql2Entities db = new alaparSql2Entities();
 
         // GET: Agent
         public ActionResult Index(int id)
         {
             DataBaseForHome data = new DataBaseForHome();
-            data.Elanler = db.Ads.Where(w => w.AgentId == id && w.StartDate < DateTime.Now).ToList();
+            data.Elanler = db.Ads.Where(w => w.AgentId == id && w.StartDate < DateTime.Now && w.EndDate > DateTime.Now).ToList();
             data.Sekiller = db.Images.ToList();
             return View(data);
 

@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Signin -->
+<section id="Signin">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
+                <center>
+                    <form action="@Url.Action("LogIn","Sign")" method="post">
+                        @if (Session["MelumatSehvi"] != null)
+                        {
+                           <label class="danger label-danger alert-danger"></label>
+                            Session["MelumatSehvi"] = null;
+                        }
+
+                        <h5>İstifadəçi Adı:</h5>
+                        <input type="text" name="Username">
+                        <h5>Şifrə:</h5>
+                        <input type="Password" name="Password" minlength="5">
+                        <br>
+                        <button type="submit" value="" class="btn btn-primary"> Daxil Olun </button>
+
+                        <a href="@Url.Action("SignUp","Sign")">Qeydiyyat</a>
+
+                        <a href="@Url.Action("Forgot","Sign")">Şifrəmi Unutdum</a>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section SignIn{
+
+    <script src="~/Assest/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Assest/js/scriptSignIn.js"></script>
+}

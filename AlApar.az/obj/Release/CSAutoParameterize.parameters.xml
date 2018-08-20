@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AlAparEntities-Web.config Connection String" description="AlAparEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Model.AlApar.csdl|res://*/Model.AlApar.ssdl|res://*/Model.AlApar.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=MadBro;initial catalog=AlApar;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\User\\source\\repos\\AlApar\.az\\AlApar\.az\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AlAparEntities']/@connectionString" />
+  </parameter>
+  <parameter name="alaparSqlEntities-Web.config Connection String" description="alaparSqlEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Model.AlApar.csdl|res://*/Model.AlApar.ssdl|res://*/Model.AlApar.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=alapar.database.windows.net;initial catalog=alaparSql;persist security info=True;user id=madbro;password=5591980Super;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\User\\source\\repos\\AlApar\.az\\AlApar\.az\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='alaparSqlEntities']/@connectionString" />
+  </parameter>
+</parameters>

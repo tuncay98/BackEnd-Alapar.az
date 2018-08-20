@@ -1,0 +1,71 @@
+﻿@model AlApar.az.Model.DataBaseForAdditionAds
+@{
+    ViewBag.Title = "LoadingMoreAds";
+    Layout = null;
+}
+
+@foreach (var item in Model.Elanler)
+{
+    <div class="col-md-4 col-12 col-lg-3 col-sm-6 col-xl-3">
+        <div class="custom-col">
+            <span class="VIPLogoText">V.I.P</span>
+            <div class="VipLogo">
+
+            </div>
+            <div class="ImagePlace">
+                <div class="PriceLogo">
+                    <div class="Holder">
+                        <div class="PriceBar">@item.Price.Value.ToString("#,#") Azn</div>
+
+                    </div>
+                </div>
+                <a href="@Url.Action("Index","AdPage", new { id = item.Id})">
+
+                    <img src="~/Assest/images/UploadAdsImages/@Model.Sekiller.Where(w=> w.ElanId == item.Id).OrderBy(o=> o.Name).FirstOrDefault().Name" alt="">
+
+                </a>
+            </div>
+            <div class="Title">
+                <a href="@Url.Action("Index","AdPage", new { id = item.Id})">
+                    <h6>@item.Title</h6>
+                </a>
+            </div>
+            <div class="Place">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                        <div class="Area">
+                            <span>
+                                <i class="fas fa-vector-square"></i> @(item.TorpaqSahesi != null ? item.TorpaqSahesi + " sot" : item.Sahe + " m²")
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                        <div class="Room">
+                            <span>
+                                <i class="fas fa-bed"></i> @(item.RoomId > 0 ? item.RoomCount.Name + "Otaqli" : "Kupça: " + (item.Kupca == true ? "Var" : "Yox") )
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                        <div class="Kind">
+                            <span>
+                                <i class="fas fa-tag"></i> @(item.Category.Id == 1 || item.Category.Id == 2 ? " Mənzil" : " " + item.Category.Name)
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+
+                        <div class="Placebar">
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i> @(item.CityId == 7 ? item.Region.Name : item.City.Name)
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -13,10 +13,10 @@ namespace AlApar.az.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AlAparEntities : DbContext
+    public partial class alaparSql2Entities : DbContext
     {
-        public AlAparEntities()
-            : base("name=AlAparEntities")
+        public alaparSql2Entities()
+            : base("name=alaparSql2Entities")
         {
         }
     

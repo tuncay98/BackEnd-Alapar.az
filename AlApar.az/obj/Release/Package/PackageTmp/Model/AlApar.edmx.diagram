@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b62a97a2d2254988917063fc1316555a" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="alaparSqlModel.Admin" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="alaparSqlModel.Ad" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="alaparSqlModel.Agent" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="alaparSqlModel.BuildingType" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="alaparSqlModel.Category" Width="1.5" PointX="0.75" PointY="22.375" />
+        <EntityTypeShape EntityType="alaparSqlModel.City" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="alaparSqlModel.complain" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="alaparSqlModel.ElanProfileFavour" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="alaparSqlModel.Image" Width="1.5" PointX="5.25" PointY="7.25" />
+        <EntityTypeShape EntityType="alaparSqlModel.Profile" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="alaparSqlModel.Region" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="alaparSqlModel.RoomCount" Width="1.5" PointX="0.75" PointY="20" />
+        <EntityTypeShape EntityType="alaparSqlModel.Village" Width="1.5" PointX="0.75" PointY="15.375" />
+        <AssociationConnector Association="alaparSqlModel.AgentAds" />
+        <AssociationConnector Association="alaparSqlModel.BuildingTypeAds" />
+        <AssociationConnector Association="alaparSqlModel.CategoryAds" />
+        <AssociationConnector Association="alaparSqlModel.CityAds" />
+        <AssociationConnector Association="alaparSqlModel.Elan_Images" />
+        <AssociationConnector Association="alaparSqlModel.ElanProfileFavours_Ads" />
+        <AssociationConnector Association="alaparSqlModel.ProfileAds" />
+        <AssociationConnector Association="alaparSqlModel.RegionAds" />
+        <AssociationConnector Association="alaparSqlModel.RoomAds" />
+        <AssociationConnector Association="alaparSqlModel.VillageAds" />
+        <AssociationConnector Association="alaparSqlModel.ElanProfileFavours_Profile" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

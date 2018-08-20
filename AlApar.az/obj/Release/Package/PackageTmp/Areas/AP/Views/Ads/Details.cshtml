@@ -1,0 +1,235 @@
+﻿@model AlApar.az.Model.Ad
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AP/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PinCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PinCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kupca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kupca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mertebe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mertebe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BinaMertebesi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BinaMertebesi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sahe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sahe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TorpaqSahesi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TorpaqSahesi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Agent.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agent.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuildingType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuildingType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomCount.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomCount.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Village.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Village.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

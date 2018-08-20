@@ -22,7 +22,7 @@ namespace AlApar.az.Controllers
         [HttpPost]
         public ActionResult LogIn(string Username, string Password)
         {
-            AlAparEntities db = new AlAparEntities();
+            alaparSql2Entities db = new alaparSql2Entities();
 
             foreach (var a in db.Profiles)
             {
@@ -68,7 +68,7 @@ namespace AlApar.az.Controllers
         [HttpPost]
         public ActionResult SignUp(string Username, string Email, string Password)
         {
-            AlAparEntities db = new AlAparEntities();
+            alaparSql2Entities db = new alaparSql2Entities();
 
             foreach (var item in db.Profiles)
             {
@@ -109,7 +109,7 @@ namespace AlApar.az.Controllers
 
         public ActionResult SendEmail(string Email)
         {
-            AlAparEntities db = new AlAparEntities();
+            alaparSql2Entities db = new alaparSql2Entities();
             foreach (var item in db.Profiles)
             {
                 if (item.Email == Email)
@@ -142,7 +142,7 @@ namespace AlApar.az.Controllers
 
         public ActionResult ChangePage(int id)
         {
-            AlAparEntities db = new AlAparEntities();
+            alaparSql2Entities db = new alaparSql2Entities();
             Profile Sexs = db.Profiles.Find(id);
             ViewBag.Sexs = Sexs.Id;
                 
@@ -151,7 +151,7 @@ namespace AlApar.az.Controllers
 
         public ActionResult CompChange(int id, string Pass)
         {
-            AlAparEntities db = new AlAparEntities();
+            alaparSql2Entities db = new alaparSql2Entities();
              
 
             string pa= Crypto.HashPassword(Pass);

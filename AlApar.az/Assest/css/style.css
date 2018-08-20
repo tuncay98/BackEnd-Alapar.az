@@ -1209,11 +1209,11 @@ Nav .col-lg-9 .custom-col ul li .button:hover {
   margin-bottom: 8px;
   font-family: "Roboto", sans-serif;
 }
-#CreateAd button {
-  margin-top: 8px;
-  margin-bottom: 3px;
-  padding: 10px 20px;
-}
+    #CreateAd #SubmitBtn {
+        margin-top: 8px;
+        margin-bottom: 3px;
+        padding: 10px 20px;
+    }
 
 @media screen and (max-width: 896px) {
   #CreateAd .custom-container {

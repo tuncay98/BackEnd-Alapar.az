@@ -1,0 +1,310 @@
+﻿@model AlApar.az.Model.DataBaseForHome
+@{
+    ViewBag.Title = "Vip";
+}
+
+
+<section id="Menu">
+    <div class="custom-container2">
+        <div class="row">
+            <div class="Overlay"></div>
+            <div class="col-md-6 col-sm-4 col-lg-6 col-xl-6 col-12">
+                <center>
+                    <div class="custom-col2">
+                        <h5>Bakı Rayonları:</h5>
+                        <ul class="First list-inline">
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 1 })">Abşeron</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 7 })">Sabunçu</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 4 })">Nəsimi</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu",new { id = 10 })">Xətai</a>
+                            </li>
+
+                        </ul>
+                        <ul class="Second list-inline">
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu",new { id = 2 })">Binəqədi</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 5 })">Nizami</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 8 })">Səbail</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 11 })">Xəzər</a>
+                            </li>
+
+                        </ul>
+                        <ul class="Third list-inline">
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 3 })">Nərimanov</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 12 })">Yasamal</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 9 })">Suraxanı</a>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("MenuSearch","Menu", new { id = 6 })">Qaradağ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </center>
+            </div>
+            <div class="col-md-6 col-sm-8 col-lg-6 col-xl-6 col-12">
+                <div class="custom-col">
+                    <ul class="list-inline Lefting">
+                        <li class="list-inline-item">
+                            <a class="Line" href="@Url.Action("Category","Menu", new { id = 1, room=0 })">Yeni Tikililər</a>
+                            <ul class="list-inline padd">
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 1, room=1 })">1-Otaqlı</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 1, room=2 })">2-Otaqlı </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 1, room=3 })">3-Otaqlı </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 1, room=4 })">4-Otaqlı </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 1, room=5 })">5 Otaq və Daha çox</a>
+                                </li>
+                                <li class="Lifting2">
+                                    <br>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a class="Line" href="@Url.Action("Category","Menu", new { id = 2, room=0 })">Köhnə Tikililər</a>
+                            <ul class="list-inline padd">
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 2, room=1 })">1-Otaqlı</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 2, room=2 })">2-Otaqlı </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 2, room=3 })">3-Otaqlı </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 2, room=4 })">4-Otaqlı </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Category","Menu", new { id = 2, room=5 })">5 Otaq və Daha çox</a>
+                                </li>
+                                <li class="Lifting2">
+                                    <br>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="list-inline-item Full">
+                            <ul class="list-inline">
+                                <li>
+                                    <a class="Bold" href="@Url.Action("Category","Menu", new { id = 4, room=0 })"> Ofislər</a>
+                                </li>
+                                <li>
+                                    <a class="Bold" href="@Url.Action("Category","Menu", new { id = 6, room=0 })"> Torpaq</a>
+                                </li>
+
+                                <li>
+                                    <a class="Bold" href="@Url.Action("Category","Menu", new { id = 5, room=0 })"> Qarajlar</a>
+                                </li>
+                                <li>
+                                    <a class="Bold" href="@Url.Action("Category","Menu", new { id = 1, room=0 })"> Mənzillər</a>
+                                </li>
+                                <li>
+                                    <a class="Bold" href="@Url.Action("Category","Menu", new { id = 7, room=0 })"> Obyektlər</a>
+                                </li>
+                                <li>
+                                    <a class="Bold" href="@Url.Action("Category","Menu", new { id = 3, room=0 })"> Həyət Evləri</a>
+                                </li>
+                                <li class="Lifting">
+                                    <br>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="VipList">
+    <center>
+        <h3>V.I.P Elanlar</h3>
+    </center>
+
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-lg-9 col-xl-9">
+                                        <input type="number" value="@Model.TamSiyahi.Count" id="NumberOfElan" hidden />
+
+                <div class="row ForAjax">
+
+                    @foreach (var item in Model.Elanler)
+                    {
+                        <div class="col-md-4 col-12 col-lg-3 col-sm-6 col-xl-3">
+                            <div class="custom-col">
+                                <span class="VIPLogoText">V.I.P</span>
+                                <div class="VipLogo">
+
+                                </div>
+                                <div class="ImagePlace">
+                                    <div class="PriceLogo">
+                                        <div class="Holder">
+                                            <div class="PriceBar">@item.Price.Value.ToString("#,#") Azn</div>
+
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("Index","AdPage", new { id = item.Id})">
+
+                                        <img src="~/Assest/images/UploadAdsImages/@Model.Sekiller.Where(w=> w.ElanId == item.Id).OrderBy(o=> o.Name).FirstOrDefault().Name" alt="">
+
+                                    </a>
+                                </div>
+                                <div class="Title">
+                                    <a href="@Url.Action("Index","AdPage", new { id = item.Id})">
+                                        <h6>@item.Title</h6>
+                                    </a>
+                                </div>
+                                <div class="Place">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                                            <div class="Area">
+                                                <span>
+                                                    <i class="fas fa-vector-square"></i> @(item.TorpaqSahesi != null ? item.TorpaqSahesi + " sot" : item.Sahe + " m²")
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                                            <div class="Room">
+                                                <span>
+                                                    <i class="fas fa-bed"></i> @(item.RoomId > 0 ? item.RoomCount.Name + "Otaqli" : "Kupça: " + (item.Kupca == true ? "Var" : "Yox") )
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                                            <div class="Kind">
+                                                <span>
+                                                    <i class="fas fa-tag"></i> @(item.Category.Id == 1 || item.Category.Id == 2 ? " Mənzil" : " " + item.Category.Name)
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+
+                                            <div class="Placebar">
+                                                <span>
+                                                    <i class="fas fa-map-marker-alt"></i> @(item.CityId == 7 ? item.Region.Name : item.City.Name)
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+
+                </div>
+
+
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 Getting d-sm-none d-none d-md-block">
+                <div class="Custom-Container-Search-Box ">
+                    <div class="custom-colum  Fixed">
+                        <div class="Contain ">
+                            <center class="MarginTop">
+                                <h5>
+                                    <a class="Add" href="@Url.Action("Index","ElaveEt")">
+                                        <span>+</span>ELAN YERLƏŞDİR
+                                    </a>
+                                </h5>
+                            </center>
+                            <center>
+                                <h5>Qiymət Aralığı:</h5>
+                            </center>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                    <div class="custom-col">
+                                        <input type="number" name="Min" step="1000" min="0" id="Min" placeholder="Min. Azn">
+                                        <span>Azn</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                    <div class="custom-col right">
+                                        <input class="" type="number" step="any" min="0" name="Max" step="1000" id="Max" placeholder="Max. Azn">
+                                        <span>Azn</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12">
+                                    <div class="custom-col">
+                                        <div class="slidecontainer">
+                                            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<center>
+                                    <h5 class="PaddingText">Sahə Aralığı:</h5>
+                                </center>*@
+                            <div class="row">
+                                @*<div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <div class="custom-col">
+                                            <input type="number" name="MinPlace" step="1" id="MinPlace" placeholder="Min. Sahə">
+                                            <span>m²</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+                                        <div class="custom-col right">
+                                            <input class="" type="number" name="MaxPlace" step="1" id="MaxPlace" placeholder="Max. Sahə">
+                                            <span>m²</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12">
+                                        <div class="custom-col">
+                                            <div class="slidecontainer">
+                                                <input type="range" min="1" max="1000" value="500" class="slider" id="myRange2">
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xl-12">
+                                    <div class="custom-col">
+                                        <center>
+                                            <button type="submit" id="SearchButton">
+                                                Axtar
+                                            </button>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-12 col-sm-12 col-lg-12 col-xl-12"> <center style="margin-top: 30px ;"><span id="AddiitoinList" style="padding: 5px 15px; background-color: gray; color: white; cursor: pointer">Digər Elanları Yüklə</span></center></div>
+
+    @section Vip{
+        <script src="~/Assest/js/script2.js"></script>
+        <script src="~/Assest/js/SearchFixed.js"></script>}

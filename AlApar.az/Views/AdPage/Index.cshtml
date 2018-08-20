@@ -6,10 +6,21 @@
 <section class="gallery-block grid-gallery">
     <div class="container">
         <div class="heading">
+            @if (Model.TamSiyahi.First().StartDate == null)
+            {
+                <h2 style="color: red" class="label-danger">Elan 24 saat içində aktiv olacaq</h2>
+            }
+            @if (Session["PinSehv"] != null)
+            {
+                <h2 style="color: red" class="label-danger">Pin Kod Sehvdir</h2>
+                Session["PinSehv"] = null;
+
+            }
+
             <h2>@Model.TamSiyahi.First().Title</h2>
         </div>
         <div class="row">
-            @foreach (var item in Model.Sekiller)
+            @foreach (var item in Model.Sekiller.Where(w=> w.ElanId == Model.TamSiyahi.First().Id))
             {
         <div class="col-md-6 col-lg-4 item">
             <a class="lightbox" href="~/Assest/images/UploadAdsImages/@item.Name">
@@ -92,10 +103,11 @@
                 </div>
                 <div class="ChangeAd">
                     <center>
-                        <h6>Pin Kod:</h6>
-                        <input type="text"> <br>
-                        <a href="">Elanı Dəyiş</a> <br>
-                        <a href="">Elanı Sil</a>
+                        <form action="@Url.Action("Sil","AdPage", new { id= item.Id })">
+                            <h6>Pin Kod:</h6>
+                            <input type="text" name="Pin"> <br>
+                            <button>Elanı Sil</button>
+                        </form>
                     </center>
                 </div>
             </div>
@@ -157,59 +169,62 @@
         <center><h4>Digər Elanlar:</h4></center>
 
         <div class="row">
-            <div class="col-xs-12 col-md-4 col-sm-12 col-lg-3 col-xl-3">
-                <div class="custom-col">
-                    <div class="ImagePlace">
-                        <div class="PriceLogo">
-                            <div class="Holder">
-                                <div class="PriceBar">90,000 Azn</div>
-
-                            </div>
-                        </div>
-                        <a href="">
-                            <img src="images/Ev2.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="Title">
-                        <a href="">
-                            <h6>Ev Satılır</h6>
-                        </a>
-                    </div>
-                    <div class="Place">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
-                                <div class="Area">
-                                    <span>
-                                        <i class="fas fa-vector-square"></i> 52 m²
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
-                                <div class="Room">
-                                    <span>
-                                        <i class="fas fa-bed"></i> 2 Otaqlı
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
-                                <div class="Kind">
-                                    <span>
-                                        <i class="fas fa-tag"></i> Mənzil
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
-
-                                <div class="Placebar">
-                                    <i class="fas fa-map-marker-alt"></i> 6-ci MKR
-                                </div>
-
-                            </div>
+            @foreach (var item in Model.Elanler)
+    {
+        <div class="col-12 col-md-4 col-sm-3 col-lg-4 col-xl-3">
+            <div class="custom-col">
+                <div class="ImagePlace">
+                    <div class="PriceLogo">
+                        <div class="Holder">
+                            <div class="PriceBar">@item.Price.Value.ToString("#,#") Azn</div>
 
                         </div>
+                    </div>
+                    <a href="@Url.Action("Index","AdPage", new { id = item.Id})">
+                        <img src="~/Assest/images/UploadAdsImages/@Model.Sekiller.Where(w=> w.ElanId == item.Id).OrderBy(o=> o.Name).FirstOrDefault().Name" alt="">
+                    </a>
+                </div>
+                <div class="Title">
+                    <a href="@Url.Action("Index","AdPage", new { id = item.Id})">
+                        <h6>@item.Title</h6>
+                    </a>
+                </div>
+                <div class="Place">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                            <div class="Area">
+                                <span>
+                                    <i class="fas fa-vector-square"></i> @(item.TorpaqSahesi != null ? item.TorpaqSahesi + " sot" : item.Sahe + " m²")
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                            <div class="Room">
+                                <span>
+                                    <i class="fas fa-bed"></i> @(item.RoomId > 0 ? item.RoomCount.Name + " Otaqli" : "Kupça: " + (item.Kupca == true ? "Var" : "Yox") )
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+                            <div class="Kind">
+                                <span>
+                                    <i class="fas fa-tag"></i> @(item.Category.Id == 1 || item.Category.Id == 2 ? " Mənzil" : " " + item.Category.Name)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 col-6">
+
+                            <div class="Placebar">
+                                <i class="fas fa-map-marker-alt"></i> @(item.CityId == 7 ? item.Region.Name : item.City.Name)
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
+        </div>
+}
         </div>
     </div>
 </div>

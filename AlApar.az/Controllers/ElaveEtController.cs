@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AlApar.az.Model;
+using System.Net.Mail;
+using System.Net;
 
 namespace AlApar.az.Controllers
 {
     public class ElaveEtController : Controller
     {
-        AlAparEntities db = new AlAparEntities();
+        alaparSql2Entities db = new alaparSql2Entities();
 
         // GET: ElaveEt
         public ActionResult Index()
@@ -24,15 +26,17 @@ namespace AlApar.az.Controllers
             return View(baza);
         }
 
-        [HttpPost]
+        
         public ActionResult Add(string Basliq, string Kupca, string Name, string SellerType, string Phone, string Email, string City, string Categoryİd, string OfisOtaqSayi,
             string RoomMenzil, string MenzilOtaqSayi, string MenzilBinaMertebeSayi, string HeyetOtaqSayi, string TorpaqSahesi,
             string MekanTipi,string Sahe, string Melumat, int PriceOfAd, string Unvan, string Rayon, string Qesebe, string Xloc,
             string Yloc, HttpPostedFileBase[] PhotoUpload)
         {
-            if ( Name != string.Empty && SellerType != string.Empty && Phone != string.Empty && Email != string.Empty && City!= string.Empty && Categoryİd != string.Empty &&
+
+            if (Xloc != string.Empty && Yloc!= string.Empty && Name != string.Empty && SellerType != string.Empty && Phone != string.Empty && Email != string.Empty && City!= string.Empty && Categoryİd != string.Empty &&
                 Sahe != string.Empty && Melumat != string.Empty && PriceOfAd > 0 && Unvan!= string.Empty && Basliq!= string.Empty)
             {
+               
                 if (PhotoUpload.Length < 3)
                 {
                     Session["Sekilin3denAzOlmasi"] = true;
@@ -40,14 +44,14 @@ namespace AlApar.az.Controllers
                 }
                 foreach (var item in PhotoUpload)
                 {
-                    if(item.ContentType != "image/jpeg" && item.ContentType!= "image/png")
+                    if (item.ContentType != "image/jpeg" && item.ContentType != "image/png")
                     {
                         Session["SekilDuzFormatdaDeyil"] = true;
                         return RedirectToAction("Index", "ElaveEt");
                     }
                 }
 
-            Ad YeniElan = new Ad();
+                Ad YeniElan = new Ad();
             YeniElan.OwnerName = Name;
             YeniElan.OwnerType = (SellerType == "false")?false:true;
             YeniElan.Phone = Phone;
@@ -114,7 +118,37 @@ namespace AlApar.az.Controllers
                         db.Images.Add(SekillerToplusu);
                         db.SaveChanges();
                     }
-                
+
+
+                string smtpAddress = "smtp.gmail.com";
+                int portNumber = 587;
+                bool enableSSL = true;
+
+                string emailFrom = "tuncayhuseynov@gmail.com";
+                string password = "5591980supertun";
+                string emailTo = Email.ToString();
+
+
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.From = new MailAddress(emailFrom);
+                    mail.To.Add(emailTo);
+                    mail.Subject = "Elanınızın Pin Kodu";
+                    mail.Body = "Sizin Elanınınzın Pin Kodu: " + DateTime.Now.ToString("yyyyMMddHHmmss") + Name.Substring(0, 2);
+                    mail.IsBodyHtml = false;
+                    // Can set to false, if you are sending pure text.
+
+                   
+
+                    using (SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
+                    {
+                        smtp.Credentials = new NetworkCredential(emailFrom, password);
+                        smtp.EnableSsl = enableSSL;
+                        smtp.Send(mail);
+                    }
+                }
+
+
 
                 return RedirectToAction("Index", "AdPage", new { id = YeniElan.Id });
             }

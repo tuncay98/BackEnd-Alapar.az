@@ -16,7 +16,6 @@
     <link rel="icon" href="~/Assest/images/favicon.ico">
     <link rel="stylesheet" href="~/Assest/css/bootstrap.css">
 
-
     <link rel="stylesheet" href="~/Assest/owlcarousel/assets/owl.carousel.min.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -25,8 +24,12 @@
     <link rel="stylesheet" href="~/Assest/owlcarousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="~/Assest/css/grid-gallery.css">
     <link rel="stylesheet" href="~/Assest/css/style.css">
+
 </head>
 <body>
+    <a id="GotoTop" href="#Nav" style="">
+        <i class="fas fa-arrow-up"></i>
+    </a>
     <Nav id="Nav">
         <div class="custom-container">
             <div class="row">
@@ -45,57 +48,58 @@
                 </div>
                 <div class="col-md-9 col-lg-9 col-xl-9 d-sm-none d-none d-lg-block">
                     @if (Session["DaxilOlundu"] == null && Session["AgentIcerde"] == null)
-    {
-                <div class="custom-col">
-                    <ul class="list-inline">
-                        <form method="post" action="@Url.Action("LogIn","Sign")">
-                            <li class="list-inline-item">
-                                <input type="text" name="Username" placeholder="Istifadəçi Adı">
-                            </li>
-                            <li class="list-inline-item">
-                                <input type="password" name="Password" placeholder="Şifrə">
-                            </li>
-                            <li class="list-inline-item">
-                                <button class="button" type="submit">Daxil Olun</button>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="badge" href="@Url.Action("SignUp","Sign")">Qeydiyyat</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="badge" href="@Url.Action("Index","Contact")">Əlaqə</a>
-                            </li>
-                        </form>
+                    {
+                        <div class="custom-col">
+                            <ul class="list-inline">
+                                <form method="post" action="@Url.Action("LogIn","Sign")">
+                                    <li class="list-inline-item">
+                                        <input type="text" name="Username" placeholder="Istifadəçi Adı">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <input type="password" name="Password" placeholder="Şifrə">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <button class="button" type="submit">Daxil Olun</button>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="badge" href="@Url.Action("SignUp","Sign")">Qeydiyyat</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="badge" href="@Url.Action("Index","Contact")">Əlaqə</a>
+                                    </li>
+                                </form>
 
-                    </ul>
+                            </ul>
 
-                </div>
+                        </div>
                     }
                     else
                     {
-                        if (Session["AgentIcerde"]==null)
+                        if (Session["AgentIcerde"] == null)
                         {
                             <div class="custom-col"> <span class="float-right">@Session["DaxilOlundu"], Xoş Gəldiniz <a href="@Url.Action("Index","Profile", new { id= Session["DaxilOlanID"] })" style="color: black">| Profil |</a> <a style="color: black" href="@Url.Action("LogOut","Sign")">| Çıxış</a> </span></div>
                         }
                         else
                         {
-                          <div class="custom-col"> <span class="float-right">@Session["AgentIcerde"], Xoş Gəldiniz <a href="@Url.Action("Index","Agent", new { id= Session["AgentId"]})" style="color: black">| Profil |</a> <a style="color: black" href="@Url.Action("LogOut","Sign")">| Çıxış</a> </span></div>
+                            <div class="custom-col"> <span class="float-right">@Session["AgentIcerde"], Xoş Gəldiniz <a href="@Url.Action("Index","Agent", new { id= Session["AgentId"]})" style="color: black">| Profil |</a> <a style="color: black" href="@Url.Action("LogOut","Sign")">| Çıxış</a> </span></div>
 
                         }
 
                     }
 
                 </div>
-                    @if (Session["DaxilOlundu"] != null)
-                    {
-                         <div class="col-12 col-sm-12 col-md-12 MobileEnter">
+                @if (Session["DaxilOlundu"] == null)
+                {
+                    <div class="col-12 col-sm-12 col-md-12 MobileEnter">
                         <div class="custom-col">
-                        <center>
-                            <span><a href="@Url.Action("Index","Sign")">Daxil Ol</a></span> <br>
-                            <span><a href="@Url.Action("SignUp","Sign")">Qeydiyyat</a></span>
-                        </center>
+                            <center>
+                                <span><a href="@Url.Action("Index","Sign")">Daxil Ol</a></span> <br>
+                                <span><a href="@Url.Action("SignUp","Sign")">Qeydiyyat</a></span> <br />
+                                <span><a style="color: green" href="@Url.Action("Index","ElaveEt")">+Elan Əlavə Et</a></span>
+                            </center>
                         </div>
-                     </div>
-                    }
+                    </div>
+                }
             </div>
         </div>
     </Nav>
@@ -116,18 +120,19 @@
 
 
     </footer>
-    
+
 
     <script type="text/javascript" src="~/Assest/js/bootstrap.js"></script>
     <script type="text/javascript" src="~/Assest/js/jquery.js"></script>
 
-    @RenderSection("HomeJs", required: false);
-    @RenderSection("Add", required: false);
-    @RenderSection("SignIn", required: false);
-    @RenderSection("SignUp", required: false);
-    @RenderSection("Contact", required: false);
-    @RenderSection("Forgot", required: false);
-    @RenderSection("AgentList", required: false);
-    @RenderSection("OnePage", required: false);
+    @RenderSection("HomeJs", required: false)
+    @RenderSection("Add", required: false)
+    @RenderSection("SignIn", required: false)
+    @RenderSection("SignUp", required: false)
+    @RenderSection("Contact", required: false)
+    @RenderSection("Forgot", required: false)
+    @RenderSection("AgentList", required: false)
+    @RenderSection("OnePage", required: false)
+    @RenderSection("Vip", required: false)
 </body>
 </html>

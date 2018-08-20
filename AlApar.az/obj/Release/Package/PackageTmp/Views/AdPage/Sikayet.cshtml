@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Sikayet";
+}
+
+
+<div style="margin-left: 50px; margin-top: 50px;">
+    <center>    <h5>Nömrənizi Daxil Edin. Tezliklə Sizinlə Əlaqə Saxlanılacaq</h5></center>
+    <form action="@Url.Action("SendNum","AdPage")" method="post">
+        <center>
+            <input type="text" name="Phone" />
+            <input type="number" value="@ViewBag.Id" name="Elanid" hidden />
+            <button type="submit" class="btn">Göndər</button>
+        </center>
+    </form>
+</div>
+
